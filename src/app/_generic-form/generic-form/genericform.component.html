@@ -1,0 +1,16 @@
+<form #userForm="ngForm" (ngSubmit)="formSubmit(userForm)">
+  <div *ngFor="let data of Inputs">
+    <input
+      [type]="data.type"
+      [placeholder]="data.placeholderValue"
+      input.validation
+      data.name="ngModel"
+    />
+    <div *ngIf="data.name.errors">
+      <div *ngIf="data.name.errors.required">
+        Username required.
+      </div>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
